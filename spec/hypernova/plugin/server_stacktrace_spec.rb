@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Hypernova::Plugin::ServerStacktrace do
   it "has a version number" do
     expect(Hypernova::Plugin::ServerStacktrace::VERSION).not_to be nil

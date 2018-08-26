@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "hypernova/plugin/server_stacktrace/version"
 
 module Hypernova
