@@ -1,0 +1,8 @@
+{
+  "ComponentName.js": {
+    "html": "",
+    "error": {
+      "stack": ["foo", "bar"]
+    }
+  }
+}

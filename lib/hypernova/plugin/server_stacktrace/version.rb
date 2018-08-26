@@ -2,7 +2,7 @@
 
 module Hypernova
   module Plugin
-    module ServerStacktrace
+    class ServerStacktrace
       VERSION = "0.1.0"
     end
   end
