@@ -1,0 +1,17 @@
+inherit_from:
+  - https://raw.githubusercontent.com/rails/rails/master/.rubocop.yml
+
+AllCops:
+  Exclude:
+    - "*.gemspec"
+    - spec/spec_helper.rb
+    - vendor/**/*
+
+LineLength:
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  EnforcedStyle: normal
