@@ -9,6 +9,14 @@ RSpec.describe Hypernova::Plugin::ServerStacktrace do
   let(:logger) { spy(:logger) }
 
   describe "#after_response" do
+    let(:described_method) { ->{ plugin.after_response(JSON.parse(fixture), double(:ignored)) } }
+    let(:fixture) { File.read(File.expand_path("../../fixtures/response.json", __dir__)) }
+
+    describe "return value" do
+      subject { described_method.call }
+      it { is_expected.to eq JSON.parse(fixture) }
+    end
+
     describe "logger" do
       subject { logger }
 
@@ -21,13 +29,10 @@ RSpec.describe Hypernova::Plugin::ServerStacktrace do
       end
 
       before do
-        response_fixture = File.read(File.expand_path("../../fixtures/response.json", __dir__))
-        current_response = JSON.parse(response_fixture)
-
-        plugin.after_response(current_response, double(:original_response))
+        described_method.call
       end
 
-      it { is_expected.to have_received(:error).with(expected_output) }
+      it { is_expected.to have_received(:error).once.with(expected_output) }
     end
   end
 end
