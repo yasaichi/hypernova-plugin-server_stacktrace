@@ -10,10 +10,12 @@ module Hypernova
       end
 
       def after_response(current_response, _original_response)
-        current_response
-          .map { |name, result| [name, result.dig("error", "stack")] }
-          .select { |_, stack_trace| stack_trace }
-          .each { |name, stack_trace| log(name, stack_trace) }
+        current_response.tap do |hash|
+          hash
+            .map { |name, result| [name, result.dig("error", "stack")] }
+            .select { |_, stack_trace| stack_trace }
+            .each { |name, stack_trace| log(name, stack_trace) }
+        end
       end
 
       private
