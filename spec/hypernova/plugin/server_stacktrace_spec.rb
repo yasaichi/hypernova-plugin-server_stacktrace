@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require "json"
-require "logger"
-require "stringio"
+require "rails_helper"
 
 RSpec.describe Hypernova::Plugin::ServerStacktrace do
   let(:plugin) { described_class.new(logger) }
