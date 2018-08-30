@@ -38,3 +38,7 @@ Gemfile.lock
 
 # RuboCop cache
 .rubocop-http*
+
+# Dummy Rails app
+/spec/dummy/db/
+/spec/dummy/log/
